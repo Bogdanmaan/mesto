@@ -24,13 +24,65 @@
                 <button class="add-button"></button>
             </section>
             <section class="elements">
-    
+                <div class="element">
+                    <img class="element__mask-group" src="./images/image-one.jpg" alt="картинка">
+                    <div class="element__group">
+                        <p class="element__text">Корова</p>
+                        <button class="element__like"></button>
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__mask-group" src="./images/image-two.jpg" alt="картинка">
+                    <div class="element__group">
+                        <p class="element__text">Бык</p>
+                        <button class="element__like"></button>
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__mask-group" src="./images/image-three.jpg" alt="картинка">
+                    <div class="element__group">
+                        <p class="element__text">Высокая гора</p>
+                        <button class="element__like"></button>
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__mask-group" src="./images/image-four.jpg" alt="картинка">
+                    <div class="element__group">
+                        <p class="element__text">Горное озеро</p>
+                        <button class="element__like"></button>
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__mask-group" src="./images/image-five.jpg" alt="картинка">
+                    <div class="element__group">
+                        <p class="element__text">Пёс на горе</p>
+                        <button class="element__like"></button>
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__mask-group" src="./images/image-six.jpg" alt="картинка">
+                    <div class="element__group">
+                        <p class="element__text">Чайка</p>
+                        <button class="element__like"></button>
+                    </div>
+                </div>
             </section>
         </main>
-    
         <footer class="footer">
-
+            <p class="footer__text">© 2022 Mesto Russia</p>
         </footer>
+        <section class="popup popup_opened">
+            <div class="popup__container">
+                <form class="edit-form">
+                    <h2 class="edit-form__heading">Редактировать профиль</h2>
+                        <input type="text" class="edit-form__field edit-form__title" placeholder="Имя" value="Жак-Ив Кусто">
+                        <input type="text" class="edit-form__field edit-form__subtitle" placeholder="О себе" value="Исследователь океана">
+                    <button type="submit" class="edit-form__button">Сохранить</button>
+                </form>
+                <img class="popup__close-icon" src="./images/Close-icon.svg" alt="крестик">
+            </div>
+        </section>
     </div>
+    <script src="./scripts/index.js"></script>
 </body>
 </html>

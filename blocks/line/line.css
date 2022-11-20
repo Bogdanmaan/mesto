@@ -2,4 +2,13 @@
     padding-top: 41px;
     padding-bottom: 40px;
     max-width: 880px;
+    min-height: 1px;
 }
+
+@media screen and (max-width: 880px) {
+    .line {
+       max-width: 100%;
+       padding-bottom: 38.25px;
+       padding-top: 31.6px;
+    }  
+} 
