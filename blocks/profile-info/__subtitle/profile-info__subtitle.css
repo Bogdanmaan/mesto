@@ -6,4 +6,17 @@
     font-size: 18px;
     line-height: 1.57;
     color: #FFFFFF;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
+
+@media screen and (max-width: 700px) {
+    .profile-info__subtitle  {
+        grid-column: span 2;
+        font-size: 14px;
+        line-height: 17px;
+        padding-bottom: 36px;
+        justify-self: center;
+    }   
+  }
