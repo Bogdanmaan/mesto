@@ -1,10 +1,9 @@
 .popup__close-icon {
-    position: fixed;
     cursor: pointer;
     width: 32px;
     height: 32px;
-    top: -40px;
-    left: 438px;
+    padding-bottom: 8px;
+    padding-left: 464px;
 }
 
 .popup__close-icon:hover {
@@ -15,7 +14,7 @@
     .popup__close-icon {
         width: 20px;
         height: 20px;
-        top: -36px;
-        left: 262px;
+        padding-bottom: 16px;
+        padding-left: 262px;
     }
 }
