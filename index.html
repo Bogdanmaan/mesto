@@ -11,59 +11,58 @@
     <div class="page">
         <header class="header">
             <img class="header__logo" src="./images/header__logo.svg" alt="логотип">
-            <img class="line" src="./images/Line.svg" alt="линия">
         </header>
         <main class="content">
             <section class="profile">
-                <img class="avatar" src="./images/avatar.svg" alt="аватар">
+                <img class="profile__avatar" src="./images/avatar.svg" alt="аватар">
                 <div class="profile-info">
-                    <h2 class="profile-info__title">Жак-Ив Кусто</h2>
-                    <button class="profile-info__edit-button"></button>
+                    <h1 class="profile-info__title">Жак-Ив Кусто</h1>
+                    <button type="button" class="profile-info__edit-button"></button>
                     <p class="profile-info__subtitle">Исследователь океана</p>
                 </div>
-                <button class="add-button"></button>
+                <button type="button" class="profile__add-button"></button>
             </section>
             <section class="elements">
                 <div class="element">
                     <img class="element__mask-group" src="./images/image-one.jpg" alt="картинка">
                     <div class="element__group">
-                        <p class="element__text">Корова</p>
-                        <button class="element__like"></button>
+                        <h2 class="element__text">Корова</h2>
+                        <button type="button" class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img class="element__mask-group" src="./images/image-two.jpg" alt="картинка">
                     <div class="element__group">
-                        <p class="element__text">Бык</p>
-                        <button class="element__like"></button>
+                        <h2 class="element__text">Бык</h2>
+                        <button type="button" class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img class="element__mask-group" src="./images/image-three.jpg" alt="картинка">
                     <div class="element__group">
-                        <p class="element__text">Высокая гора</p>
-                        <button class="element__like"></button>
+                        <h2 class="element__text">Высокая гора</h2>
+                        <button type="button" class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img class="element__mask-group" src="./images/image-four.jpg" alt="картинка">
                     <div class="element__group">
-                        <p class="element__text">Горное озеро</p>
-                        <button class="element__like"></button>
+                        <h2 class="element__text">Горное озеро</h2>
+                        <button type="button" class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img class="element__mask-group" src="./images/image-five.jpg" alt="картинка">
                     <div class="element__group">
-                        <p class="element__text">Пёс на горе</p>
-                        <button class="element__like"></button>
+                        <h2 class="element__text">Пёс на горе</h2>
+                        <button type="button" class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img class="element__mask-group" src="./images/image-six.jpg" alt="картинка">
                     <div class="element__group">
-                        <p class="element__text">Чайка</p>
-                        <button class="element__like"></button>
+                        <h2 class="element__text">Чайка</h2>
+                        <button type="button" class="element__like"></button>
                     </div>
                 </div>
             </section>
@@ -71,16 +70,16 @@
         <footer class="footer">
             <p class="footer__text">© 2022 Mesto Russia</p>
         </footer>
-        <section class="popup popup_opened popup-overflow">
+        <section class="popup">
             <div class="popup__container">
-                <form class="edit-form">
+                <form name="form" class="edit-form">
                     <h2 class="edit-form__heading">Редактировать профиль</h2>
-                        <input type="text" class="edit-form__field edit-form__title" placeholder="Имя" value="Жак-Ив Кусто">
-                        <input type="text" class="edit-form__field edit-form__subtitle" placeholder="О себе" value="Исследователь океана">
+                    <input type="text" class="edit-form__field" id="name" name="name" placeholder="Имя" value="Жак-Ив Кусто">
+                    <input type="text" class="edit-form__field" id="job" name="job" placeholder="Работа" value="Исследователь океана">
                     <button type="submit" class="edit-form__button">Сохранить</button>
                 </form>
             </div>
-            <img class="popup__close-icon" src="./images/Close-icon.svg" alt="крестик">
+            <button type="button" id="close" class="popup__close-icon"></button>
         </section>
     </div>
     <script src="./scripts/index.js"></script>
