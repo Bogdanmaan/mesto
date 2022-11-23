@@ -1,22 +1,21 @@
-const buttonEdit = document.querySelector('.profile-info__edit-button');
+const buttonEdit = document.querySelector('.profile__edit-button');
 const buttonClose = document.querySelector('#close');
 const popup = document.querySelector('.popup');
-const title = document.querySelector('.profile-info__title');
-const subtitle = document.querySelector('.profile-info__subtitle');
+const title = document.querySelector('.profile__title');
+const subtitle = document.querySelector('.profile__subtitle');
 const form = document.querySelector('.edit-form');
 const nameInput = document.querySelector('#name');
 const jobInput = document.querySelector('#job');
-const buttonSave = document.querySelector('.edit-form__button');
 
 function popupOpen () {
-  popup.classList.remove('popup');
   popup.classList.add('popup_opened')
+  nameInput.value = title.textContent;
+  jobInput.value =  subtitle.textContent;
 }
 
 buttonEdit.addEventListener('click', popupOpen);
 
 function popupClose () {
-  popup.classList.add('popup');
   popup.classList.remove('popup_opened');
 }
 
@@ -26,7 +25,6 @@ function formSubmitHandler (evt) {
   evt.preventDefault();
   title.textContent = nameInput.value;
   subtitle.textContent = jobInput.value;
+  popupClose ();
 };
 form.addEventListener('submit', formSubmitHandler);
-
-buttonSave.addEventListener('click', popupClose);
