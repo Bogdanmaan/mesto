@@ -4,7 +4,7 @@
     height: 50px;
     border-radius: 2px;
     border: 2px solid white;
-    background-color: black;
+    background: transparent;
     background-image: url(../../../images/Plus-white.svg);
     background-repeat: no-repeat;
     background-position: center;
