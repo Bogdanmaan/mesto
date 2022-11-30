@@ -23,48 +23,7 @@
                 <button type="button" class="profile__add-button"></button>
             </section>
             <section class="elements">
-                <div class="element">
-                    <img class="element__mask-group" src="./images/image-one.jpg" alt="картинка">
-                    <div class="element__group">
-                        <h2 class="element__text">Корова</h2>
-                        <button type="button" class="element__like"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__mask-group" src="./images/image-two.jpg" alt="картинка">
-                    <div class="element__group">
-                        <h2 class="element__text">Бык</h2>
-                        <button type="button" class="element__like"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__mask-group" src="./images/image-three.jpg" alt="картинка">
-                    <div class="element__group">
-                        <h2 class="element__text">Высокая гора</h2>
-                        <button type="button" class="element__like"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__mask-group" src="./images/image-four.jpg" alt="картинка">
-                    <div class="element__group">
-                        <h2 class="element__text">Горное озеро</h2>
-                        <button type="button" class="element__like"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__mask-group" src="./images/image-five.jpg" alt="картинка">
-                    <div class="element__group">
-                        <h2 class="element__text">Пёс на горе</h2>
-                        <button type="button" class="element__like"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__mask-group" src="./images/image-six.jpg" alt="картинка">
-                    <div class="element__group">
-                        <h2 class="element__text">Чайка</h2>
-                        <button type="button" class="element__like"></button>
-                    </div>
-                </div>
+ 
             </section>
         </main>
         <footer class="footer">
@@ -81,7 +40,30 @@
             </div>
             <button type="button" id="close" class="popup__close-icon"></button>
         </section>
+        <section class="new-popup">
+            <div class="popup__container">
+                <form name="form" class="add-form">
+                    <h2 class="edit-form__heading">Новое место</h2>
+                    <input type="text" class="edit-form__field" id="title" name="title" placeholder="Название">
+                    <input type="text" class="edit-form__field" id="link" name="link" placeholder="Ссылка на картинку">
+                    <button type="submit" class="edit-form__button">Создать</button>
+                </form>
+            </div>
+            <button type="button" id="close-new" class="popup__close-icon"></button>
+        </section>
     </div>
+
+    <template id="element-template">
+        <div class="element">
+            <img class="element__mask-group" alt="картинка">
+            <div class="element__group">
+                <h2 class="element__text"></h2>
+                <button type="button" class="element__like"></button>
+            </div>
+            <button type="button" class="element__delete"></button>
+        </div>
+    </template>
+  
     <script src="./scripts/index.js"></script>
 </body>
 </html>
