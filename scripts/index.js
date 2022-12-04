@@ -70,19 +70,35 @@ function newPopupOpen () {
   newPopup.classList.add('popup_opened')
 }
 
-buttonAdd.addEventListener('click', newPopupOpen);
+buttonAdd.addEventListener('click', newPopupOpen); //открытие попап
 
 function newPopupClose () {
   newPopup.classList.remove('popup_opened');
 }
-newButtonClose.addEventListener('click', newPopupClose);
+newButtonClose.addEventListener('click', newPopupClose); //закрытие попап
 
 // Добавление элементов
 
 const elementTemplate = document.querySelector('#element-template').content.querySelector('.element');
 
-const handledeleteCard = (evt) => {
-  evt.target.closest('.element').remove();
+const handleLikeCard = (evt) => {
+  evt.target.classList.toggle('element__like_active'); //функция лайканья
+}
+
+const handleDeleteCard = (evt) => {
+  evt.target.closest('.element').remove(); //функция удаления карточки
+}
+
+const photoPopup = document.querySelector('.photo-popup');//попап для фото
+const photoButtonClose = document.querySelector('#photo-close'); //закрытие фото
+const photo = document.querySelector('.photo-popup__image');
+const photoTitle = document.querySelector('.photo-popup__title');
+
+const zoomCard = (dataCard) => {
+  photoPopup.classList.add('popup_opened');
+  photo.src = dataCard.link;
+  photoTitle.textContent = dataCard.name;
+
 }
 
 const createCard = (dataCard) => {
@@ -92,8 +108,12 @@ const createCard = (dataCard) => {
   text.textContent = dataCard.name;
   image.src = dataCard.link;
 
+  const like = newCard.querySelector('.element__like').addEventListener('click', handleLikeCard);
+
   const deleteButton = newCard.querySelector('.element__delete');
-  deleteButton.addEventListener('click', handledeleteCard)
+  deleteButton.addEventListener('click', handleDeleteCard);
+
+  image.addEventListener('click', () => zoomCard(dataCard));
 
   return newCard;
 }
@@ -113,3 +133,10 @@ addForm.addEventListener('submit', addFormSubmitHandler);
 initialCards.forEach((dataCard) => {
   renderCard (dataCard);
 })
+
+// Увеличение фото
+
+const photoPopupClose = () => {
+  photoPopup.classList.remove('popup_opened');
+}
+photoButtonClose.addEventListener('click', photoPopupClose);

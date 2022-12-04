@@ -7,8 +7,10 @@
     width: 32px;
     height: 32px;
     padding: 0;
-    position: relative;
-    left: 240px;
+    position: absolute;
+    left: 101%;
+    bottom: 101%;
+    
 }
 
 .popup__close-icon:hover {
@@ -20,6 +22,7 @@
         background: url(../../../images/Close-Icon-min.svg);
         width: 20px;
         height: 20px;
-        left: 132px;
+        left: 93%;
+        bottom: 104%;
     }
 }

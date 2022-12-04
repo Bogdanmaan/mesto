@@ -37,8 +37,8 @@
                     <input type="text" class="edit-form__field" id="job" name="job" placeholder="Работа">
                     <button type="submit" class="edit-form__button">Сохранить</button>
                 </form>
+                <button type="button" id="close" class="popup__close-icon"></button>
             </div>
-            <button type="button" id="close" class="popup__close-icon"></button>
         </section>
         <section class="new-popup">
             <div class="popup__container">
@@ -48,10 +48,21 @@
                     <input type="text" class="edit-form__field" id="link" name="link" placeholder="Ссылка на картинку">
                     <button type="submit" class="edit-form__button">Создать</button>
                 </form>
+                <button type="button" id="close-new" class="popup__close-icon"></button>
             </div>
-            <button type="button" id="close-new" class="popup__close-icon"></button>
+        </section>
+        <section class="photo-popup">
+            <div class="photo-popup__container">
+                <button type="button" id="photo-close" class="popup__close-icon"></button>
+                <img class="photo-popup__image" alt="картинка">
+                <h3 class="photo-popup__title"></h3>
+            </div>
         </section>
     </div>
+
+    <template id="photo-template">
+
+    </template>
 
     <template id="element-template">
         <div class="element">
