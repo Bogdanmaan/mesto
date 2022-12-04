@@ -7,7 +7,7 @@ const form = document.querySelector('.edit-form');
 const nameInput = document.querySelector('#name');
 const jobInput = document.querySelector('#job');
 const buttonAdd = document.querySelector('.profile__add-button'); //кнопка добавления
-const newPopup = document.querySelector('.new-popup'); //новый попап
+const newPopup = document.querySelector('#new-popup'); //новый попап
 const newButtonClose = document.querySelector('#close-new'); //закрытие нового попап
 
 const elements = document.querySelector('.elements'); //пустая заготовка для карточек

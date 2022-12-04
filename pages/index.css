@@ -32,6 +32,5 @@
 @import url(../blocks/edit-form/__field/edit-form__field.css);
 @import url(../blocks/edit-form/__button/edit-form__button.css);
 @import url(../blocks/popup/__close-icon/popup__close-icon.css);
-@import url(../blocks/new-popup/new-popup.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/element/__like/_active/element__like_active.css);
