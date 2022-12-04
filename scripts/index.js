@@ -11,7 +11,7 @@ const newPopup = document.querySelector('.new-popup'); //новый попап
 const newButtonClose = document.querySelector('#close-new'); //закрытие нового попап
 
 const elements = document.querySelector('.elements'); //пустая заготовка для карточек
-const addForm = document.querySelector('.add-form'); //форма добавления
+const addForm = document.querySelector('#add-form'); //форма добавления
 const titleInput = document.querySelector('#title'); //первая сторка 
 const linkInput = document.querySelector('#link'); //вторая строка
 
