@@ -7,8 +7,8 @@ const profileForm = document.querySelector('.edit-form');
 const nameInput = document.querySelector('#name');
 const jobInput = document.querySelector('#job');
 const buttonAdd = document.querySelector('.profile__add-button'); //кнопка добавления
-const cardPopup = document.querySelector('#new-popup'); //новый попап
-const btnCloseCard = document.querySelector('#close-new'); //закрытие нового попа
+const cardPopup = document.querySelector('#card-popup'); //попап карточки
+const btnCloseCard = document.querySelector('#close-new'); //закрытие попапа карточки
 const cardsContainer = document.querySelector('.elements'); //пустая заготовка для карточек
 const cardForm = document.querySelector('#add-form'); //форма добавления
 const titleInput = document.querySelector('#title'); //первая сторка 
@@ -17,20 +17,19 @@ const photoPopup = document.querySelector('#photo-popup');//попап для ф
 const photoButtonClose = document.querySelector('#photo-close'); //закрытие фото
 const photo = document.querySelector('.popup__image');
 const photoTitle = document.querySelector('.popup__title');
-const photoCont = document.querySelector('.popup__container_photo');
 const cardTemplate = document.querySelector('#element-template').content.querySelector('.element');
 
 // Функции 
 
-function openPopup (profilePopup) {
-  profilePopup.classList.add('popup_opened');
+function openPopup (popup) {
+  popup.classList.add('popup_opened');
 } 
 
-function closePopup (profilePopup) {
-  profilePopup.classList.remove('popup_opened');
+function closePopup (popup) {
+  popup.classList.remove('popup_opened');
 }
 
-function profileDesc () {
+function openProfile () {
   nameInput.value = profileTitle.textContent;
   jobInput.value =  profileSubtitle.textContent;
   openPopup (profilePopup);
@@ -56,7 +55,6 @@ const zoomCard = (dataCard) => {
   photoTitle.textContent = dataCard.name;
   photo.alt = dataCard.name;
   openPopup (photoPopup);
-  photoCont.classList.remove('popup__container');
 }
 
 const createCard = (dataCard) => {
@@ -96,7 +94,7 @@ initialCards.forEach((dataCard) => {
 
 //Обработчики 
 
-buttonEdit.addEventListener('click', profileDesc);//открывает попап профиля
+buttonEdit.addEventListener('click', openProfile);//открывает попап профиля
 
 btnCloseProfile.addEventListener('click', function () {
   closePopup (profilePopup);
