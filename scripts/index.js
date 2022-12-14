@@ -19,6 +19,7 @@ const photo = document.querySelector('.popup__image');
 const photoTitle = document.querySelector('.popup__title');
 const cardTemplate = document.querySelector('#element-template').content.querySelector('.element');
 
+
 // Функции 
 
 function openPopup (popup) {
@@ -92,7 +93,25 @@ initialCards.forEach((dataCard) => {
   renderCard (dataCard);
 })
 
+function handleClose (evt) {
+  if (evt.key === 'Escape') {
+  closePopup(cardPopup);
+  closePopup(profilePopup);
+  closePopup(photoPopup);
+};
+}
+
+const handleCloseOut = (evt) => {
+  if (!evt.target.closest ('popup__container')){
+    closePopup(evt.target);
+  }
+}
+
 //Обработчики 
+
+document.addEventListener('click', handleCloseOut);
+
+document.addEventListener('keydown', handleClose);//закрытие по esc
 
 buttonEdit.addEventListener('click', openProfile);//открывает попап профиля
 

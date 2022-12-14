@@ -32,8 +32,10 @@
             <div class="popup__container">
                 <form name="form" class="edit-form">
                     <h2 class="edit-form__heading">Редактировать профиль</h2>
-                    <input type="text" class="edit-form__field" id="name" name="name" placeholder="Имя">
-                    <input type="text" class="edit-form__field" id="job" name="job" placeholder="Работа">
+                    <input type="text" class="edit-form__field" id="name" name="name" placeholder="Имя" required minlength="2" maxlength="40">
+                    <span class="edit-form__field-error name-error"></span>
+                    <input type="text" class="edit-form__field" id="job" name="job" placeholder="Работа" required minlength="2" maxlength="200">
+                    <span class="edit-form__field-error job-error"></span>
                     <button type="submit" class="edit-form__button">Сохранить</button>
                 </form>
                 <button type="button" id="close" class="popup__close-icon"></button>
@@ -43,8 +45,10 @@
             <div class="popup__container">
                 <form name="form" class="edit-form" id="add-form">
                     <h2 class="edit-form__heading">Новое место</h2>
-                    <input type="text" class="edit-form__field" id="title" name="title" placeholder="Название">
-                    <input type="text" class="edit-form__field" id="link" name="link" placeholder="Ссылка на картинку">
+                    <input type="text" class="edit-form__field" id="title" name="title" placeholder="Название" required minlength="1" maxlength="30">
+                    <span class="edit-form__field-error title-error"></span>
+                    <input type="url" class="edit-form__field" id="link" name="link" placeholder="Ссылка на картинку" required>
+                    <span class="edit-form__field-error link-error"></span>
                     <button type="submit" class="edit-form__button">Создать</button>
                 </form>
                 <button type="button" id="close-new" class="popup__close-icon"></button>
@@ -70,6 +74,7 @@
         </div>
     </template>
   
+    <script src="./scripts/validate.js"></script>
     <script src="./scripts/cards.js"></script>
     <script src="./scripts/index.js"></script>
 </body>
