@@ -1,4 +1,6 @@
 .edit-form__field-error {
+    display: block;
+    min-height: 30px;
     margin-left: 36px;
     margin-top: 5px;
     font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;

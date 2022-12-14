@@ -1,8 +1,6 @@
 .popup__container_photo {
     margin: 0 auto;
-    width: 75vw;
-    height: 75vh;
     padding: 0;
-    background:none;
+    background: none;
     border-radius: 0;
 }
