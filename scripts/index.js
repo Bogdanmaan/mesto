@@ -22,14 +22,6 @@ const cardTemplate = document.querySelector('#element-template').content.querySe
 
 // Функции 
 
-function openPopup (popup) {
-  popup.classList.add('popup_opened');
-} 
-
-function closePopup (popup) {
-  popup.classList.remove('popup_opened');
-}
-
 function openProfile () {
   nameInput.value = profileTitle.textContent;
   jobInput.value =  profileSubtitle.textContent;
@@ -41,6 +33,8 @@ function handleProfileFormSubmit (evt) {
   profileTitle.textContent = nameInput.value;
   profileSubtitle.textContent = jobInput.value;
   closePopup (profilePopup);
+  document.getElementById("btn-s").disabled = false;
+  document.getElementById("btn-c").disabled = false;
 };
 
 const handleLikeCard = (evt) => {
@@ -84,9 +78,7 @@ const handleCardFormSubmit = (evt) => {
   evt.preventDefault();
   renderCard({link:linkInput.value, name:titleInput.value});
   closePopup (cardPopup);
-
-  linkInput.value = '';
-  titleInput.value = '';
+  cardForm.reset();
 };
 
 initialCards.forEach((dataCard) => {
@@ -95,23 +87,30 @@ initialCards.forEach((dataCard) => {
 
 function handleClose (evt) {
   if (evt.key === 'Escape') {
-  closePopup(cardPopup);
-  closePopup(profilePopup);
-  closePopup(photoPopup);
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+    document.removeEventListener('keydown', handleClose);
 };
 }
 
 const handleCloseOut = (evt) => {
-  if (!evt.target.closest ('popup__container')){
+  if (!evt.target.classList.contains ('popup__container')){
     closePopup(evt.target);
   }
 }
 
+function openPopup (popup) {
+  popup.classList.add('popup_opened');
+  document.addEventListener('keydown', handleClose);
+} 
+
+function closePopup (popup) {
+  popup.classList.remove('popup_opened');
+}
+
 //Обработчики 
 
-document.addEventListener('click', handleCloseOut);
-
-document.addEventListener('keydown', handleClose);//закрытие по esc
+document.addEventListener('click', handleCloseOut);//закрытие вне попап
 
 buttonEdit.addEventListener('click', openProfile);//открывает попап профиля
 

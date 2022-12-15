@@ -4,9 +4,3 @@
     display: flex;
     flex-direction: column;
 }
-
-@media screen  and (max-width: 580px) {
-    .edit-form {
-        padding-left: 22px;
-    }
-}
