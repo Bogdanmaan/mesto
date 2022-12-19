@@ -18,7 +18,7 @@ const photoButtonClose = document.querySelector('#photo-close'); //закрыт�
 const photo = document.querySelector('.popup__image');
 const photoTitle = document.querySelector('.popup__title');
 const cardTemplate = document.querySelector('#element-template').content.querySelector('.element');
-
+const btnCard = document.querySelector('#card-btn');
 
 // Функции 
 
@@ -33,8 +33,6 @@ function handleProfileFormSubmit (evt) {
   profileTitle.textContent = nameInput.value;
   profileSubtitle.textContent = jobInput.value;
   closePopup (profilePopup);
-  document.getElementById("btn-s").disabled = false;
-  document.getElementById("btn-c").disabled = false;
 };
 
 const handleLikeCard = (evt) => {
@@ -89,12 +87,11 @@ function handleClose (evt) {
   if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_opened');
     closePopup(openedPopup);
-    document.removeEventListener('keydown', handleClose);
 };
 }
 
 const handleCloseOut = (evt) => {
-  if (!evt.target.classList.contains ('popup__container')){
+  if (evt.target.classList.contains ('popup')){
     closePopup(evt.target);
   }
 }
@@ -102,10 +99,12 @@ const handleCloseOut = (evt) => {
 function openPopup (popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', handleClose);
+  btnDisabled(btnCard, config);
 } 
 
 function closePopup (popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', handleClose);
 }
 
 //Обработчики 

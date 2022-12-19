@@ -1,5 +1,4 @@
 .popup_photo {
     background: rgba(0, 0, 0, 0.9);
-    min-width: 75vw;
-    min-height: 75vh;
+    margin: 0 auto;
 }
