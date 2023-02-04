@@ -1,4 +1,4 @@
-import { initialCards, config } from "./contains.js";
+import { initialCards, config } from "./constants.js";
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
 
@@ -21,8 +21,8 @@ const photoPopup = document.querySelector('#photo-popup');//попап для ф
 const photoButtonClose = document.querySelector('#photo-close'); //закрытие фото
 const photo = document.querySelector('.popup__image');
 const photoTitle = document.querySelector('.popup__title');
-const cardTemplate = document.querySelector('#element-template').content.querySelector('.element');
-const btnCard = document.querySelector('#card-btn');
+// const cardTemplate = document.querySelector('#element-template').content.querySelector('.element');
+// const btnCard = document.querySelector('#card-btn');
 
 // Функции 
 
@@ -30,6 +30,7 @@ function openProfile () {
   nameInput.value = profileTitle.textContent;
   jobInput.value =  profileSubtitle.textContent;
   openPopup (profilePopup);
+  validProfile.makeBtnDisabled();
 }
 
 function handleProfileFormSubmit (evt) {
@@ -57,7 +58,7 @@ function zoomCard (name, link) {
 const createCard = (item) => {
   const card = new Card (item, "#element-template", zoomCard);
   const cardElement = card.generateCard();
-  cardsContainer.prepend(cardElement);
+  return cardElement;
 
   // const newCard = cardTemplate.cloneNode(true);
   // const text = newCard.querySelector('.element__text');
@@ -77,7 +78,7 @@ const createCard = (item) => {
 }
 
 const renderCard = (item) => {
-  createCard(item);
+  cardsContainer.prepend(createCard(item));
 };
 
 const handleCardFormSubmit = (evt) => {
@@ -91,7 +92,7 @@ initialCards.forEach((item) => {
   renderCard (item);
 })
 
-function handleClose (evt) {
+function handleCloseByEsc (evt) {
   if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_opened');
     closePopup(openedPopup);
@@ -106,8 +107,7 @@ const handleCloseOut = (evt) => {
 
 function openPopup (popup) {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', handleClose);
-  validProfile.makeBtnDisabled();
+  document.addEventListener('keydown', handleCloseByEsc);
 } 
 
 function closePopup (popup) {
