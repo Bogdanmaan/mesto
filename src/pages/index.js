@@ -1,11 +1,11 @@
-import { initialCards, config } from "../scripts/constants.js";
-import { Card } from "../scripts/Card.js";
-import { FormValidator } from "../scripts/FormValidator.js";
-import { Section } from "../scripts/Section.js";
-import { Popup } from "../scripts/Popup.js";
-import { PopupWithImage } from "../scripts/PopupWithImage.js";
-import { PopupWithForm } from "../scripts/PopupWithForm.js";
-import { UserInfo } from "../scripts/UserInfo.js";
+import { initialCards, config } from "../utils/constants.js"
+import { Card } from "../components/Card.js";
+import { FormValidator } from "../components/FormValidator.js";
+import { Section } from "../components/Section.js";
+import { Popup } from "../components/Popup.js";
+import { PopupWithImage } from "../components/PopupWithImage.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import { UserInfo } from "../components/UserInfo.js";
 
 const buttonEdit = document.querySelector('.profile__edit-button');
 const btnCloseProfile = document.querySelector('#close');
@@ -77,8 +77,8 @@ const userInfo = new UserInfo ({
 })
 profForm.setEventListeners();
 
-function handleProfileFormSubmit (value) {
-  userInfo.setUserInfo(value);
+function handleProfileFormSubmit () {
+  userInfo.setUserInfo(nameInput, jobInput);
   // evt.preventDefault();
   // profileTitle.textContent = nameInput.value;
   // profileSubtitle.textContent = jobInput.value;
