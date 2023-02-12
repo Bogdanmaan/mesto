@@ -18,9 +18,6 @@ export class Card {
   }
 
   _setEventListeners() {
-    this._cardLike = this._element.querySelector('.element__like');
-    this._cardDlt = this._element.querySelector('.element__delete');
-    
     this._cardLike.addEventListener('click', () => this._handleLikeCard());
     this._cardDlt.addEventListener('click', () => this._handleDeleteCard());
     this._cardImg.addEventListener('click', () => this._zoomCard(this._name, this._link));
@@ -40,6 +37,8 @@ export class Card {
     this._element = this._getTemplate();
   
     // Добавим данные
+    this._cardLike = this._element.querySelector('.element__like');
+    this._cardDlt = this._element.querySelector('.element__delete');
     this._cardImg = this._element.querySelector('.element__mask-group');
     this._cardName = this._element.querySelector('.element__text');
 
