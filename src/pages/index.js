@@ -85,7 +85,7 @@ newCardForm.setEventListeners();
 
 //Обработчик формы карточки
 function handleCardFormSubmit (values) {
-  cardsList._renderer({link:values.link, name:values.title});
+  cardsList.renderer({link:values.link, name:values.title});
   newCardForm.close();
 };
 
