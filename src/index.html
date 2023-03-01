@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="./pages/index.css"> -->
     <title>Место</title>
 </head>
 <body class="root">
@@ -14,11 +13,11 @@
         </header>
         <main class="content">
             <section class="profile">
-                <img class="profile__avatar" src="<%=require('./images/avatar.svg')%>" alt="аватар">
+                <button type="button" class="profile__avatar-button"><img class="profile__avatar" alt="аватар"></button>
                 <div class="profile__info">
-                    <h1 class="profile__title">Жак-Ив Кусто</h1>
+                    <h1 class="profile__title"></h1>
                     <button type="button" class="profile__edit-button"></button>
-                    <p class="profile__subtitle">Исследователь океана</p>
+                    <p class="profile__subtitle"></p>
                 </div>
                 <button type="button" class="profile__add-button"></button>
             </section>
@@ -34,8 +33,8 @@
                     <h2 class="edit-form__heading">Редактировать профиль</h2>
                     <input type="text" class="edit-form__field" id="name" name="name" placeholder="Имя" required minlength="2" maxlength="40">
                     <span class="edit-form__field-error name-error"></span>
-                    <input type="text" class="edit-form__field" id="job" name="job" placeholder="Работа" required minlength="2" maxlength="200">
-                    <span class="edit-form__field-error job-error"></span>
+                    <input type="text" class="edit-form__field" id="about" name="about" placeholder="Работа" required minlength="2" maxlength="200">
+                    <span class="edit-form__field-error about-error"></span>
                     <button type="submit" class="edit-form__button">Сохранить</button>
                 </form>
                 <button type="button" id="close" class="popup__close-icon"></button>
@@ -54,6 +53,26 @@
                 <button type="button" id="close-new" class="popup__close-icon"></button>
             </div>
         </section>
+        <section class="popup" id="avatar-popup">
+            <div class="popup__container">
+                <form name="form" class="edit-form" id="avatar-form">
+                    <h2 class="edit-form__heading">Обновить аватар</h2>
+                    <input type="url" class="edit-form__field" id="link" name="link" placeholder="Ссылка на аватар" required>
+                    <span class="edit-form__field-error link-error"></span>
+                    <button type="submit" class="edit-form__button" id="avatar-btn">Сохранить</button>
+                </form>
+                <button type="button" id="close-new" class="popup__close-icon"></button>
+            </div>
+        </section>
+        <section class="popup" id="dlt-popup">
+            <div class="popup__container popup__container_confirm">
+                <h2 class="edit-form__heading edit-form__heading_confirm">Вы уверены?</h2>
+                <form name="form" class="edit-form" id="dlt-form">
+                    <button type="submit" class="edit-form__button edit-form__button_confirm" id="card-dlt">Да</button>
+                </form>
+                <button type="button" id="close-dlt" class="popup__close-icon"></button>
+            </div>
+        </section>
         <section class="popup popup_photo" id="photo-popup">
             <div class="popup__container popup__container_photo">
                 <button type="button" id="photo-close" class="popup__close-icon"></button>
@@ -68,14 +87,13 @@
             <img class="element__mask-group" alt="картинка">
             <div class="element__group">
                 <h2 class="element__text"></h2>
-                <button type="button" class="element__like"></button>
+                <div class="element__like-group">
+                    <button type="button" class="element__like"></button>
+                    <p class="element__like-number"></p>
+                </div>
             </div>
             <button type="button" class="element__delete"></button>
         </div>
     </template>
-  
-    <!-- <script src="./scripts/validate.js"></script> -->
-    <!-- <script type="module" src="./scripts/Card.js"></script> -->
-    <!-- <script type="module" src="./index.js"></script> -->
 </body>
 </html>

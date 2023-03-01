@@ -6,7 +6,12 @@ export class PopupWithForm extends Popup {
         this._handleFormSubmit = handleFormSubmit;
         this._form = this._popupElement.querySelector('.edit-form');
         this._inputList = Array.from(this._form.querySelectorAll('.edit-form__field'));
+        this._btn = this._popupElement.querySelector('.edit-form__button');
     }
+
+    loading(text) {
+        this._btn.textContent = text;
+      }
 
     _getInputValues () {
         this._formValues = {};

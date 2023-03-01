@@ -1,6 +1,7 @@
 .element {
     margin: 0 auto;
     width: 282px;
+    max-height: 361px;
     background-color: white;
     border-radius: 10px;
     display: grid;
