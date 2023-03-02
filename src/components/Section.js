@@ -4,6 +4,10 @@ export class Section {
         this._container = sectionElement;
     }
 
+    prependItem(item) {
+        this._container.prepend(item);
+    }
+
     renderItems (initialCards) {
         initialCards.forEach((item) => {
             this.renderer(item);

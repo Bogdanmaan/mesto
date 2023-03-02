@@ -16,12 +16,12 @@ const profilePopup = document.querySelector('#profile-popup');
 const profileForm = document.querySelector('.edit-form');
 const nameInput = document.querySelector('#name');
 const aboutInput = document.querySelector('#about');
+const avatarInput = document.querySelector('#avalink');
 const buttonAdd = document.querySelector('.profile__add-button'); //кнопка добавления
 const cardPopup = document.querySelector('#card-popup'); //попап карточки
 const cardsContainer = document.querySelector('.elements'); //пустая заготовка для карточек
 const cardForm = document.querySelector('#add-form'); //форма добавления
 const photoPopup = document.querySelector('#photo-popup');//попап для фото
-const profileAvatar = document.querySelector('.profile__avatar');
 const dltPopup = document.querySelector('#dlt-popup');
 const editAvatar = document.querySelector('.profile__avatar-button');
 const avatarPopup = document.querySelector('#avatar-popup');
@@ -36,7 +36,6 @@ let userId = null;
 Promise.all([api.getInitialCards(), api.getProfileData()])
 .then(([initialCards, userData]) => {
   userInfo.setUserInfo(userData);
-  profileAvatar.src = userData.avatar;
   userId = userData._id;
   cardsList.renderItems(initialCards);
 })
@@ -107,7 +106,9 @@ function handleCardFormSubmit (data) {
   newCardForm.loading('Создание...');
   api.addNewCard(data)
     .then((data) => {
-      cardsList.renderer(data);
+      const cardElement = createCard(data);
+      cardsList.prependItem(cardElement);
+      newCardForm.close();
     })
     .catch((err)=>{
       console.log(`Ошибка: ${err}`)
@@ -115,7 +116,6 @@ function handleCardFormSubmit (data) {
     .finally(()=> {
       newCardForm.loading('Создать')
     })
-  newCardForm.close();
 };
 //////////////////////////////////// 
 
@@ -141,7 +141,8 @@ function handleConfirmDelete (card) {
 
 const userInfo = new UserInfo ({
   name: '.profile__title',
-  about: '.profile__subtitle'
+  about: '.profile__subtitle',
+  avatar: '.profile__avatar'
 })
 
 function openProfile () {
@@ -157,17 +158,19 @@ const profForm = new PopupWithForm (profilePopup, handleProfileFormSubmit);
 profForm.setEventListeners();
 
 //Обработчик формы профиля
-function handleProfileFormSubmit (value) {
+function handleProfileFormSubmit (name, about) {
   profForm.loading('Сохранение...');
-  userInfo.setUserInfo(value);
-  api.editProfData(value)
+  api.editProfData(name, about)
+  .then((name, about)=>{
+    userInfo.setUserInfo(name, about);
+    profForm.close();
+  })
   .catch((err)=>{
     console.log(`Ошибка: ${err}`)
   })
   .finally(()=> {
     profForm.loading('Сохранить')
   })
-  profForm.close();
 };
 ///////////////////////////////////
 
@@ -187,11 +190,11 @@ function openAvatar () {
 const edtAva = new PopupWithForm (avatarPopup, handleAvatarUpdate);
 edtAva.setEventListeners();
 
-function handleAvatarUpdate (value) {
+function handleAvatarUpdate (avatar) {
   edtAva.loading('Сохранение...');
-  api.editAvatar(value)
-  .then((data)=>{
-    profileAvatar.src = data.avatar;
+  api.editAvatar(avatar)
+  .then((avatar)=>{
+    userInfo.setUserInfo(avatar);
     edtAva.close();
   })
   .catch((err)=>{
