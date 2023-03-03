@@ -16,7 +16,6 @@ const profilePopup = document.querySelector('#profile-popup');
 const profileForm = document.querySelector('.edit-form');
 const nameInput = document.querySelector('#name');
 const aboutInput = document.querySelector('#about');
-const avatarInput = document.querySelector('#avalink');
 const buttonAdd = document.querySelector('.profile__add-button'); //кнопка добавления
 const cardPopup = document.querySelector('#card-popup'); //попап карточки
 const cardsContainer = document.querySelector('.elements'); //пустая заготовка для карточек
@@ -106,8 +105,8 @@ function handleCardFormSubmit (data) {
   newCardForm.loading('Создание...');
   api.addNewCard(data)
     .then((data) => {
-      const cardElement = createCard(data);
-      cardsList.prependItem(cardElement);
+      const newCardElement = createCard(data);
+      cardsList.prependItem(newCardElement);
       newCardForm.close();
     })
     .catch((err)=>{
